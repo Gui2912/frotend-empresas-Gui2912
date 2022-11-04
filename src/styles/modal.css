@@ -1,0 +1,26 @@
+.modal-bg{
+  width: 100%;
+  height: 90vw;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0, 0.4);
+}
+
+.modal-bg div{
+  position: fixed;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 80%;
+  bottom: 30%;
+  background-color: white;
+}
+
+.modal-bg div form{
+  width: 100%;
+  height: 100%;
+}

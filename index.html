@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kenzie empresas</title>
+    <link rel="stylesheet" href="src/styles/GlobalStyles.css">
+    <link rel="stylesheet" href="src/styles/header.css">
+    <link rel="stylesheet" href="src/styles/buttons.css">
+    <link rel="stylesheet" href="src/styles/texts.css">
+    <link rel="stylesheet" href="src/styles/index.css">
+
+  </head>
+  <body>
+    <header class="flex space-between align-center">
+      <div class="flex row align-center">
+        <img src="src/img/Ellipse 1.svg" alt="">
+        <img src="src/img/Kenzie Empresas.svg" alt="">
+      </div>
+      <div class="flex-end">
+        <button class="back-home" id="login">Login</button>
+        <button class="login">Cadastro</button>
+      </div>
+    </header>
+    <main class="flex space-evenly">
+      <section >
+        <img src="src/img/Index-img.svg" alt="">
+      </section>
+      <section class="second-column flex column">
+        <select>
+          <option value="">Selecione setor</option>
+        </select>
+        <ul class="company-list">
+          <li>
+            <h3>Empresa Name</h3>
+            <p>10 horas</p>
+            <span>Setor</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script type="module" src="src/scripts/index.js"></script>
+  </body>
+</html>

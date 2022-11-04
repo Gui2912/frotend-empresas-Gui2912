@@ -1,0 +1,5 @@
+header button {
+  width: 142px;
+  font-size: var(--text-1);
+  text-align: center;
+}

@@ -1,0 +1,108 @@
+header div{
+  margin: 0 3%;
+}
+
+main{
+  position: relative;
+  top: 43px;
+  height: 80%;
+  width: 100%;
+}
+
+main section{
+  width: 45%;
+}
+
+main section img{
+  width: 100%;
+}
+
+select{
+  background-color: var(--color-brand);
+  color: white;
+}
+
+select option{
+  background-color: white;
+  color: var(--color-brand);
+}
+
+select, option{
+  height: 52px;
+  text-align: center;
+  font-family: 'Poppins';
+  font-weight: 400;
+  padding: 0 20px;
+}
+
+option:hover{
+  background-color: var(--color-brand);
+  color: white;
+}
+
+.second-column{
+  height: 820px;
+}
+
+.company-list{
+  padding: 20px;
+  background-color: var(--color-gray);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.company-list li{
+  background-color: white;
+  border-bottom: 1px solid var(--color-brand);
+  padding: 20px;
+}
+
+.dropbtn {
+  background-color: var(--color-brand);
+  color: white;
+  padding: 16px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropbtn img{
+  height: 100%;
+  width: max-content;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  z-index: 1;
+}
+
+.dropdown-content label {
+  color: gray;
+  padding: 12px 16px; 
+}
+
+.dropdown-content label:hover {
+  background-color: var(--color-brand);
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: var(--color-brand);
+  color: white;
+}

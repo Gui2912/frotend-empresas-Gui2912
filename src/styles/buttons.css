@@ -1,0 +1,45 @@
+form button{
+  width: 100%;
+}
+
+.login {
+  background-color: var(--color-brand);
+  color: white;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: var(--text-2);
+  margin-top: 5px;
+}
+
+.register {
+  padding: 9px;
+  margin: 5px 0;
+  font-weight: 700;
+  font-size: var(--text-2);
+  background-color: var(--color-brand);
+  color: white;
+  font-family: "Inter";
+}
+
+.back-home {
+  background-color: white;
+  color: var(--color-brand);
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: var(--text-2);
+}
+
+
+#create-departament{
+  height: 48px;
+  width: 120px; 
+  padding: 0 20px; 
+  color: white;
+  background-color: var(--color-brand);
+}
+
+#create-departament > img{
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+}

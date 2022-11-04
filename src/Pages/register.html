@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/GlobalStyles.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/registerLogin.css" />
+    <link rel="stylesheet" href="../styles/inputs.css" />
+    <link rel="stylesheet" href="../styles/buttons.css" />
+    <link rel="stylesheet" href="../styles/texts.css" />
+    <title>Registro Kenzie Empresas</title>
+  </head>
+  <body>
+    <header class="flex space-around align-center">
+      <div class="flex row align-center">
+        <img src="../img/Ellipse 1.svg" alt="" />
+        <img src="../img/Kenzie Empresas.svg" alt="" />
+      </div>
+      <div>
+        <button class="back-home">Home</button>
+        <button class="login">Login</button>
+      </div>
+    </header>
+    <main class="flex justify-center container">
+      <form class="register-form flex column">
+        <h2>cadastre-se</h2>
+        <input name="username" type="text" placeholder="Seu nome" required />
+        <input name="email" type="email" placeholder="Seu e-mail" required />
+        <input name="password" type="password" placeholder="Sua senha" required />
+        <!-- <div class="dropdown">
+          <button class="dropbtn flex space-between">Nível profissional <img src="../img/arrow.svg" alt=""> </button>
+          <div class="dropdown-content flex column">
+            <label for="júnior" id="label-junior">Júnior</label>
+            <input type="radio" id="júnior" name="nivel" checked ="false">
+            <label for="pleno">Pleno</label>
+            <input type="radio" id="pleno" name="nivel" >
+            <label for="sênior">Sênior</label>
+            <input type="radio" id="sênior" name="nivel" >
+          </div>
+        </div> -->
+        <select name="professional_level">
+          <option value="">Nível profíssional</option>
+          <option value="júnior">Júnior</option>
+          <option value="pleno">Pleno</option>
+          <option value="sênior">Sênior</option>
+        </select>
+        <button class="register" type="submit">Cadastre-se</button>
+        <button class="back-home" type="button">Retomar</button>
+      </form>
+    </main>
+    <script type="module" src="../scripts/register.js"></script>
+  </body>
+</html>

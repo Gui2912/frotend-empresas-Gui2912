@@ -1,0 +1,19 @@
+.register-form input{
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid gray;
+  outline: var(--color-brand);
+  font-size: var(--text-1);
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 100%;
+}
+
+.register-form input:focus{
+  border-color: var(--color-brand);
+}
+
+.register-form select{
+  margin: 5px 0;
+  padding: 10px;
+}

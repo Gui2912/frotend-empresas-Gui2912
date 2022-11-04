@@ -1,0 +1,60 @@
+header div img{
+  margin-left: 12px;
+}
+
+form h2{
+  font-size: var(--title-1);
+  font-family: 'Poppins';
+  font-weight: 700;
+}
+
+.register-form p{
+  margin: 20px 0;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: var(--text-1);
+}
+
+select, option{
+  font-size: var(--text-2);
+  color: grey;
+  outline: var(--color-brand);
+  overflow: var(--color-brand);
+}
+
+.company-list{font-family: "Inter";}
+.company-list h3{  
+  font-weight: 700;
+}
+
+.company-list p{
+  margin: 20px 0;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: var(--sub-text);
+}
+
+.company-list span{
+  border: 1px solid var(--color-brand);
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: 400;
+  color: var(--color-brand);
+}
+
+.departament-container li{
+  font-family: 'Inter';
+}
+
+.departament-container li h3{
+  font-size: var(--title-3);
+}
+
+.departament-container li p{
+  margin: 20px 0;
+  font-size: var(--text-1);
+}
+
+.departament-container li span{font-size: var(--text-1);}
+
+

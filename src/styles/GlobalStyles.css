@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --color-brand: #4200FF;
+  --color-red: #CE4646;
+  --color-green: #4BA036;
+  --color-gray: #f9f9f9;
+
+  --title-1: 2.5rem; 
+  --title-2: 2rem;
+  --title-3: 1.25rem;
+
+  --text-1: 1.125rem;
+  --sub-text: 1rem;
+  
+}
+
+.flex{display: flex;}
+.column{flex-direction: column;}
+.space-between{justify-content: space-between;}
+.space-around{justify-content: space-around;}
+.space-evenly{justify-content: space-evenly;}
+.row{flex-direction: row;}
+.wrap{flex-wrap: wrap;}
+.flex-end{justify-content: flex-end;}
+
+.align-center{align-items: center;}
+.justify-center{justify-content: center;}
+
+button{
+  border: 1px solid var(--color-brand);
+  height: 48px;
+}
+button:hover{cursor: pointer;}
+
+header{
+  height: 80px;
+  position: sticky;
+  width: 100%;
+  background-color: white;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+ul{list-style: none;}
