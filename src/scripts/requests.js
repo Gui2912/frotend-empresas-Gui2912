@@ -129,13 +129,51 @@ export async function postCreateDepartament(body) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token.token}`,
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     });
+
+    const response = request.json();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function patchEditUser(body) {
+  const token = JSON.parse(localStorage.getItem("token")) || "";
+  try {
+    const request = await fetch(baseUrl + "users", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.token}`,
+      },
+      body: JSON.stringify(body),
+    });
+
+    const response = request.json();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function getUserData(){
+  const token = JSON.parse(localStorage.getItem("token")) || "";
+  try{
+
+    const request = await fetch(baseUrl + "users/profile", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token.token}`
+      }
+    })
 
     const response = request.json()
     return response
 
-  } catch (err) {
+  }catch(err){
     console.log(err);
   }
 }

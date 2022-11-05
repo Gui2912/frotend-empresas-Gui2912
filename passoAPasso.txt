@@ -1,4 +1,0 @@
-1. montar o src pages, styles, scripts, imgs - ok
-2. organizar o global styles - ok
-3. fazer o css da pg de register/ login - 
-4. fazer as funcionalidades dos botões de redirecionamento da pg de register, login e index
