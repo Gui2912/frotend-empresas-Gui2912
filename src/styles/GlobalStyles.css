@@ -12,10 +12,12 @@
   --color-red: #CE4646;
   --color-green: #4BA036;
   --color-gray: #f9f9f9;
+  --color-gray-user: #F8F8F8;
 
   --title-1: 2.5rem; 
   --title-2: 2rem;
   --title-3: 1.25rem;
+  --title-modal-form: 2.25rem;
 
   --text-1: 1.125rem;
   --sub-text: 1rem;

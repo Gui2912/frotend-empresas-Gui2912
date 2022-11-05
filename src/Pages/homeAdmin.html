@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/GlobalStyles.css" />
     <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../styles/registerLogin.css" />
+    <!-- <link rel="stylesheet" href="../styles/registerLogin.css" /> -->
     <link rel="stylesheet" href="../styles/inputs.css" />
     <link rel="stylesheet" href="../styles/buttons.css" />
     <link rel="stylesheet" href="../styles/texts.css" />
-    <link rel="stylesheet" href="../styles/homeAdmin.css">
-    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="../styles/homeAdmin.css" />
+    <link rel="stylesheet" href="../styles/modal.css" />
     <title>Kenzie Empresas admin</title>
   </head>
   <body>
     <!-- <section class="modal-bg">
-      <div>
+      <div class="modal flex justify-center column">
+        <figure class="flex flex-end close-button">
+          <img src="../img/X-icon.svg" alt="" />
+        </figure>
         
       </div>
     </section> -->
@@ -32,66 +35,20 @@
     <main class="flex column justify-center">
       <div class="main-header flex space-between align-center">
         <h2>Departamentos</h2>
-        <select>
+        <select id="select">
           <option>Selecionar empresa</option>
         </select>
-        <button id="create-departament" class="flex align-center"><img src="../img/+.svg" alt=""> Criar</button>
+        <button id="create-departament" class="flex align-center">
+          <img src="../img/+.svg" alt="" /> Criar
+        </button>
       </div>
-      <ul class="departament-container flex wrap jus">
-        <li class="departament-description">
-          <h4>Departament Name</h4>
-          <p>Departament description</p>
-          <span>Company Name</span>
-          <figure class="flex justify-center">
-            <img src="../img/Eye.svg" alt="">
-            <img src="../img/Pencil.svg" alt="">
-            <img src="../img/Trash-icon.svg" alt="">
-          </figure>
-        </li>
-        <li class="departament-description">
-          <h4>Departament Name</h4>
-          <p>Departament description</p>
-          <span>Company Name</span>
-          <figure class="flex justify-center">
-            <img src="../img/Eye.svg" alt="">
-            <img src="../img/Pencil.svg" alt="">
-            <img src="../img/Trash-icon.svg" alt="">
-          </figure>
-        </li>
-        <li class="departament-description">
-          <h4>Departament Name</h4>
-          <p>Departament description</p>
-          <span>Company Name</span>
-          <figure class="flex justify-center">
-            <img src="../img/Eye.svg" alt="">
-            <img src="../img/Pencil.svg" alt="">
-            <img src="../img/Trash-icon.svg" alt="">
-          </figure>
-        </li>
-        <li class="departament-description">
-          <h4>Departament Name</h4>
-          <p>Departament description</p>
-          <span>Company Name</span>
-          <figure class="flex justify-center">
-            <img src="../img/Eye.svg" alt="">
-            <img src="../img/Pencil.svg" alt="">
-            <img src="../img/Trash-icon.svg" alt="">
-          </figure>
-        </li>
-      </ul>
+      <ul class="departament-container flex wrap justify-center"></ul>
       <div class="flex align-center justify-center">
         <h2>Usuários cadastrados</h2>
       </div>
-      <ul class="departament-container flex wrap jus">
-        <li class="departament-description">
-          <h4>Username</h4>
-          <p>Pleno</p>
-          <span>Company Name</span>
-          <figure class="flex justify-center">
-            <img src="../img/Pencil.svg">
-            <img src="../img/Trash-icon.svg">
-          </figure>
-        </li>
+      <ul
+        class="user-container departament-container flex wrap justify-center"
+      ></ul>
     </main>
     <script type="module" src="../scripts/homeAdmin.js"></script>
   </body>

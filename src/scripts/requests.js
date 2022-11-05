@@ -7,8 +7,8 @@ export async function getVerifyAdm() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token.token}`
-      }
+        Authorization: `Bearer ${token.token}`,
+      },
     });
 
     const response = await request.json();
@@ -37,8 +37,7 @@ export async function postLogin(body) {
       console.log(getVerifyUser.is_admin);
       if (!getVerifyUser.is_admin) {
         window.location.replace("../Pages/homeUser.html");
-
-      } else if(getVerifyUser.is_admin){
+      } else if (getVerifyUser.is_admin) {
         window.location.replace("../Pages/homeAdmin.html");
       }
     }
@@ -64,22 +63,81 @@ export async function postRegister(body) {
   }
 }
 
-export async function getAllCompanys(){
-  try{
-    const request = await fetch(baseUrl + "companies")
-    const response = await request.json()
-    return response
-  }catch(err){
+export async function getAllCompanys() {
+  try {
+    const request = await fetch(baseUrl + "companies");
+    const response = await request.json();
+    return response;
+  } catch (err) {
     console.log(err);
   }
 }
 
-export async function getAllCompanysSectors(){
-  try{
-    const request = await fetch(baseUrl + "sectors")
-    const response = await request.json()
-    return response
-  }catch(err){
+export async function getAllCompanysSectors() {
+  try {
+    const request = await fetch(baseUrl + "sectors");
+    const response = await request.json();
+    return response;
+  } catch (err) {
     console.log(err);
   }
 }
+
+export async function getAllDepartaments() {
+  const token = JSON.parse(localStorage.getItem("token")) || "";
+  try {
+    const request = await fetch(baseUrl + "departments", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.token}`,
+      },
+    });
+
+    const response = request.json();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function getAllEmployees() {
+  const token = JSON.parse(localStorage.getItem("token")) || "";
+  try {
+    const request = await fetch(baseUrl + "users", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.token}`,
+      },
+    });
+
+    const response = request.json();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function postCreateDepartament(body) {
+  const token = JSON.parse(localStorage.getItem("token")) || "";
+
+  try {
+    const request = await fetch(baseUrl + "departments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.token}`,
+      },
+      body: JSON.stringify(body)
+    });
+
+    const response = request.json()
+    return response
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+

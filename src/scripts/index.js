@@ -17,36 +17,52 @@ const companysRender = async () => {
   const allCompanys = await getAllCompanys();
   const allSectors = await getAllCompanysSectors();
 
-  console.log(allCompanys);
-  console.log(allSectors);
-
   let select = document.querySelector("select");
 
-  allSectors.map((element) => {
+  allSectors.forEach((element) => {
     const option = document.createElement("option");
     option.value = element.description;
     option.innerText = element.description;
     select.appendChild(option);
   });
 
-  const options = document.querySelectorAll("option")
-
-    allCompanys.map((element) => {
-      const ul = document.querySelector(".company-list");
-      const card = document.createElement("li");
-      const cardTitle = document.createElement("h3");
-      cardTitle.innerText = element.name;
-
-      const openHour = document.createElement("p");
-      openHour.innerText = element.opening_hours.slice(1, 2) + " horas";
-
-      const sectorType = document.createElement("span");
-      sectorType.innerText = element.sectors.description;
-
-      card.append(cardTitle, openHour, sectorType);
-      ul.appendChild(card);
-    });
+  select.addEventListener("change", () => {
+    const companyFilter = allCompanys.filter(element =>  element.sectors.description === select.value)
+    // console.log(select.value);
+    if (select.value === "") {
+      renderCard(allCompanys)
+    }else{
+      renderCard(companyFilter)
+    } 
+  })
+  
+  renderCard(allCompanys);
 
 };
+
+function renderCard(array) {
+  const ul = document.querySelector(".company-list");
+  ul.innerHTML = "";
+  array.forEach((element) => {
+    let cardRenderization = cardMaker(element);
+    ul.appendChild(cardRenderization);
+  });
+}
+
+function cardMaker(element) {
+  const card = document.createElement("li");
+  const cardTitle = document.createElement("h3");
+  cardTitle.innerText = element.name;
+
+  const openHour = document.createElement("p");
+  openHour.innerText = element.opening_hours.slice(1, 2) + " horas";
+
+  const sectorType = document.createElement("span");
+  sectorType.innerText = element.sectors.description;
+
+  card.append(cardTitle, openHour, sectorType);
+
+  return card;
+}
 
 companysRender();

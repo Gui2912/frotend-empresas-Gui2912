@@ -18,14 +18,22 @@ main{
 .main-header select{
   border-radius: 20px;
   padding: 5px 20px;
+  
 }
 
 .departament-container{
-  padding: 30px;
   background-color: var(--color-gray);
   height: 385px;
   overflow-y: scroll;
   margin-bottom: 30px;
+}
+
+ul::-webkit-scrollbar {
+  width: 20px;
+}
+ 
+ul::-webkit-scrollbar-thumb {
+  background: var(--color-brand); 
 }
 
 .departament-description{
@@ -34,8 +42,9 @@ main{
   background-color: white;
   margin: 28px;
   border-bottom: 1px solid var(--color-brand);
+  height: 210px;
 }
-
+.departament-description figure {margin-bottom: 20px;}
 .departament-description figure img{
   margin: 30px 12px 12px ;
 }
