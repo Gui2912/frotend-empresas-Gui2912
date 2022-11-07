@@ -77,16 +77,16 @@ export async function postRegister(body) {
     } else {
       toast(
         "fail",
-        "Usuário criado com sucesso!!!",
-        "Você será redirecionado em breve, aguarde"
+        "Algo deu errado",
+        "Verifique se todos os campos foram preenchidos"
       );
     }
   } catch (err) {
     console.log(err);
     toast(
       "fail",
-      "Usuário criado com sucesso!!!",
-      "Você será redirecionado em breve, aguarde"
+      "Algo deu errado",
+      "Verifique se todos os campos foram preenchidos"
     );
   }
 }
@@ -160,8 +160,22 @@ export async function postCreateDepartament(body) {
       body: JSON.stringify(body),
     });
 
-    const response = request.json();
-    return response;
+    if (request.ok) {
+      toast(
+        "sucess",
+        "Usuário criado com sucesso!!!",
+        "Você será redirecionado em breve, aguarde"
+      );
+      const response = await request.json();
+
+      return response;
+    } else {
+      toast(
+        "fail",
+        "Algo deu errado",
+        "Verifique se os campos foram preenchidos"
+      );
+    }
   } catch (err) {
     console.log(err);
   }

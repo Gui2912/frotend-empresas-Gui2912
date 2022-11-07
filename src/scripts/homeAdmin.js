@@ -27,6 +27,11 @@ const logout = () => {
 };
 logout();
 
+const token = JSON.parse(localStorage.getItem("token")) || "";
+if(!token){
+  window.location.replace("../../index.html");
+}
+
 const departamentRender = async () => {
   const allDep = await getAllDepartaments();
 

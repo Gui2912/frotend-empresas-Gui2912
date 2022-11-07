@@ -19,6 +19,11 @@ const logout = () => {
 };
 logout();
 
+const token = JSON.parse(localStorage.getItem("token")) || "";
+if(!token){
+  window.location.replace("../../index.html");
+}
+
 String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
