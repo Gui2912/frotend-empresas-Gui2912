@@ -42,3 +42,8 @@
 .form-modal select:focus{
   border-color: var(--color-brand);
 }
+
+.hire-user-form select{
+  width: 477px;
+  height: 52px;
+}

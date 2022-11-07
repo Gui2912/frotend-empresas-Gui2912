@@ -78,6 +78,24 @@ select, option{
 .modal h2{
   font-size: var(--title-modal-form);
   font-family: 'Poppins';
+  text-align: center;
+  width: 80%;
+}
+
+.hire-user-form h2{
+  text-align: start;
+}
+
+.employee-data-empty p{
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: var(--title-1);
+}
+
+.employee-data h2{
+  font-size: var(--title-2);
+  font-weight: 700;
+  font-family: "Inter";
 }
 
 

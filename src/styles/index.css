@@ -77,39 +77,7 @@ option:hover{
 }
 
 /* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  width: 100%;
-  z-index: 1;
-}
-
-.dropdown-content label {
-  color: gray;
-  padding: 12px 16px; 
-}
-
-.dropdown-content label:hover {
-  background-color: var(--color-brand);
-  color: white;
-  cursor: pointer;
-}
-
-.dropdown:hover .dropdown-content {
-  display: flex;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: var(--color-brand);
-  color: white;
-}
 
 ul::-webkit-scrollbar {
   width: 20px;

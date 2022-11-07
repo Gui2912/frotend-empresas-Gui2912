@@ -1,11 +1,17 @@
-import { patchEditUser, getUserData } from "./requests.js";
+import {
+  patchEditUser,
+  getUserData,
+  getCoWork,
+  getDepartamentsId,
+  getAllDeps,
+  getAllCompanys
+} from "./requests.js";
 import { modalBg } from "./modal.js";
 
 const logout = () => {
   const logoutBtn = document.querySelector("#index-redirect");
 
   logoutBtn.addEventListener("click", () => {
-    const token = JSON.parse(localStorage.getItem("token")) || "";
     localStorage.clear();
 
     window.location.replace("../../index.html");
@@ -13,11 +19,15 @@ const logout = () => {
 };
 logout();
 
-const renderUserData = async (array) => {
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+const renderUserData = async () => {
   const userDataReq = await getUserData();
+
   const userData = document.querySelector(".user-data");
 
-  console.log(userDataReq);
   const h2 = document.createElement("h2");
   h2.innerText = userDataReq.username;
 
@@ -28,36 +38,32 @@ const renderUserData = async (array) => {
   email.innerText = userDataReq.email;
 
   const userExp = document.createElement("p");
-  if(userDataReq.professional_level !== null){
-    userExp.innerText = userDataReq.professional_level;
-  }else{
-    userExp.classList = "hide"
+  if (userDataReq.professional_level !== null) {
+    userExp.innerText = userDataReq.professional_level.capitalize();
+  } else {
+    userExp.classList = "hide";
   }
-  
 
   const kindOfWork = document.createElement("p");
-  if(userDataReq.kind_of_work !== null){
-    kindOfWork.innerText = userDataReq.kind_of_work;
-  }else{
-    kindOfWork.classList = "hide"
+  if (userDataReq.kind_of_work !== null) {
+    kindOfWork.innerText = userDataReq.kind_of_work.capitalize();
+  } else {
+    kindOfWork.classList = "hide";
   }
-  
 
   const edit = document.createElement("img");
   edit.src = "../img/pencil-bule.svg";
-  edit.id = "edit"
+  edit.id = "edit";
 
   edit.addEventListener("click", () => {
     modalBg(editUserForm());
   });
 
-  userFoot.append(email, userExp, kindOfWork, edit)
-  userData.append(h2, userFoot)
+  userFoot.append(email, userExp, kindOfWork, edit);
+  userData.append(h2, userFoot);
 };
 
-renderUserData()
-
-
+renderUserData();
 
 function editUserForm() {
   const title = document.createElement("h2");
@@ -99,15 +105,69 @@ function editUserForm() {
   return form;
 }
 
+async function renderUserCoWork() {
+  const userData = await getUserData();
+  const coWorks = await getCoWork()
+  const allCompanies = await getAllCompanys()
+  const allDeps = await getAllDeps();
 
+  // console.log(userData.department_uuid);
+  
+  // console.log(allDeps);
+  const employeeData = document.querySelector(".employee-data");
+  if (userData.department_uuid !== null) {
+  const findDepName = await allDeps.departments.find(
+    (element) => element.uuid === userData.department_uuid
+  );
+  console.log(findDepName.name)
+  // console.log(findDepName.company_uuid);
+  
+  
+  const allCompaniesFind = allCompanies.find(element => element.uuid === findDepName.company_uuid)
+  console.log(allCompaniesFind.name);
+  console.log(coWorks[0].users);
 
-{
-  /* <h2>USERNAME</h2>
-        <div class="user-foot flex space-between align-center">
-          <p>Email</p>
-          <p>Pleno</p>
-          <p>Home Office</p>
-          <img src="../img/pencil-bule.svg" id="edit" />
-          
-        </div> */
+  // const departamentPerId = await getDepartamentsId();
+  
+  employeeData.innerHTML = ''
+  
+    const h2 = document.createElement("h2");
+    h2.classList = "flex justify-center align-center";
+    h2.innerText = `${allCompaniesFind.name} - ${findDepName.name}`
+
+    const ul = document.createElement("ul")
+    ul.classList = "flex wrap justify-center"
+
+    coWorks[0].users.forEach((element) => {
+      const li = document.createElement("li")
+      li.classList = "card-user-data"
+
+      const h3 = document.createElement("h3")
+      h3.innerText = element.username
+
+      const p = document.createElement("p")
+      p.innerText = findDepName.name
+
+      li.append(h3, p)
+      ul.appendChild(li)
+    })
+
+    
+    employeeData.append(h2,ul)
+
+  }else{
+    const p = document.createElement("p")
+    p.innerText = "Você ainda não foi contratado"
+    employeeData.classList = "employee-data-empty"
+    employeeData.appendChild(p)
+  }
 }
+
+// <h2 class="flex justify-center align-center">Company name - Departament name</h2>
+//           <ul class="flex wrap justify-center">
+//             <li class="card-user-data">
+//               <h3>Nome do colega</h3>
+//               <p>Setor</p>
+//             </li>
+
+renderUserCoWork();
