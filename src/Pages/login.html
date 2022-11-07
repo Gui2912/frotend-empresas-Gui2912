@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/GlobalStyles.css">
-  <link rel="stylesheet" href="../styles/mobile.css" />
-  <link rel="stylesheet" href="../styles/header.css" />
-  <link rel="stylesheet" href="../styles/registerLogin.css">
-  <link rel="stylesheet" href="../styles/inputs.css">
-  <link rel="stylesheet" href="../styles/buttons.css">
-  <link rel="stylesheet" href="../styles/texts.css">
-  <title>Registro Kenzie Empresas</title>
-</head>
-<body>
-      <header class="flex space-around align-center">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/GlobalStyles.css" />
+    <link rel="stylesheet" href="../styles/mobile.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/registerLogin.css" />
+    <link rel="stylesheet" href="../styles/inputs.css" />
+    <link rel="stylesheet" href="../styles/buttons.css" />
+    <link rel="stylesheet" href="../styles/texts.css" />
+    <title>Registro Kenzie Empresas</title>
+  </head>
+  <body>
+    <header class="flex space-around align-center">
       <div class="flex row align-center">
-        <img src="../img/Ellipse 1.svg" alt="">
-        <img src="../img/Kenzie Empresas.svg" alt="">
+        <img src="../img/Ellipse 1.svg" alt="" />
+        <img src="../img/Kenzie Empresas.svg" alt="" />
       </div>
       <div class="btn-header">
-        <button class="back-home" id="index-redirect">Home</button>
-        <button class="register">Cadastro</button>
+        <div class="drop">
+          <img src="../img/hmbg.svg" alt="" />
+          <div class="buttons-drop">
+            <button class="back-home" id="index-redirect">Home</button>
+            <button class="register">Cadastro</button>
+          </div>
+        </div>
       </div>
     </header>
-    <main class="flex justify-center container" >
+    <main class="flex justify-center container">
       <form id="login-form" class="register-form flex column align-center">
         <h2>Login</h2>
-        <input name="email" type="email" placeholder="Seu e-mail" required>
-        <input name="password" type="password" placeholder="Sua senha" required>
+        <input name="email" type="email" placeholder="Seu e-mail" required />
+        <input
+          name="password"
+          type="password"
+          placeholder="Sua senha"
+          required
+        />
 
         <button class="login" type="submit">Login</button>
         <p>OU</p>
@@ -36,5 +46,5 @@
       </form>
     </main>
     <script type="module" src="../scripts/login.js"></script>
-</body>
+  </body>
 </html>
