@@ -1,0 +1,28 @@
+.toast-container{
+  position: absolute;
+  width: 400px !important;
+  height: max-content;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  line-height: 21px;
+  justify-content: flex-end;
+  left: 40%;
+  bottom: 20%;
+  /* display: flex;
+  justify-content: flex-end; */
+  padding: 12px;
+  /* background-color: white; */
+  animation: toast 3000ms forwards;
+  z-index: 5;
+}
+
+@keyframes toast{
+    0% {bottom: 0%; left: 40%}
+    25% {bottom: 20%;}
+    50%{bottom: 20%;}
+    75%{bottom: 20%; }
+    100%{bottom: 0%;}
+    
+}
+

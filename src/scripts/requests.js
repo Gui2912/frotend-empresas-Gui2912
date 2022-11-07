@@ -1,3 +1,5 @@
+import { toast } from "./toast.js";
+
 const baseUrl = "http://localhost:6278/";
 
 export async function getVerifyAdm() {
@@ -7,7 +9,7 @@ export async function getVerifyAdm() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -34,12 +36,20 @@ export async function postLogin(body) {
 
       localStorage.setItem("token", JSON.stringify(response));
       let getVerifyUser = await getVerifyAdm();
-      console.log(getVerifyUser.is_admin);
-      if (!getVerifyUser.is_admin) {
-        window.location.replace("../Pages/homeUser.html");
-      } else if (getVerifyUser.is_admin) {
-        window.location.replace("../Pages/homeAdmin.html");
-      }
+      toast(
+        "sucess",
+        "Login feito com sucesso!!!",
+        "Você será redirecionado em breve"
+      );
+      setTimeout(() => {
+        if (!getVerifyUser.is_admin) {
+          window.location.replace("../Pages/homeUser.html");
+        } else if (getVerifyUser.is_admin) {
+          window.location.replace("../Pages/homeAdmin.html");
+        }
+      }, 2000);
+    } else {
+      toast("Fail", "Algo deu errado", "Verifique o e-mail e a senha");
     }
   } catch (err) {
     console.log(err);
@@ -56,10 +66,28 @@ export async function postRegister(body) {
 
     const response = await request.json();
     if (response) {
-      window.location.replace("../Pages/login.html");
+      toast(
+        "sucess",
+        "Usuário criado com sucesso!!!",
+        "Você será redirecionado em breve, aguarde"
+      );
+      setTimeout(() => {
+        window.location.replace("../Pages/login.html");
+      }, 2000);
+    } else {
+      toast(
+        "fail",
+        "Usuário criado com sucesso!!!",
+        "Você será redirecionado em breve, aguarde"
+      );
     }
   } catch (err) {
     console.log(err);
+    toast(
+      "fail",
+      "Usuário criado com sucesso!!!",
+      "Você será redirecionado em breve, aguarde"
+    );
   }
 }
 
@@ -90,7 +118,7 @@ export async function getAllDepartaments() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -108,7 +136,7 @@ export async function getAllEmployees() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -127,7 +155,7 @@ export async function postCreateDepartament(body) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
       body: JSON.stringify(body),
     });
@@ -146,7 +174,7 @@ export async function patchEditUser(body) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
       body: JSON.stringify(body),
     });
@@ -165,7 +193,7 @@ export async function getUserData() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -183,7 +211,7 @@ export async function deleteDepartament(uuid) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -202,7 +230,7 @@ export async function deleteUser(uuid) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -221,7 +249,7 @@ export async function adminEditUser(uuid, body) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
       body: JSON.stringify(body),
     });
@@ -241,7 +269,7 @@ export async function getDepartamentsId(uuid) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -260,7 +288,7 @@ export async function getOutOfWork() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
     });
 
@@ -279,7 +307,7 @@ export async function patchHire(body) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`,
+        Authorization: `Bearer ${token.token}`,
       },
       body: JSON.stringify(body),
     });
@@ -299,29 +327,28 @@ export async function patchEditDepartament(uuid, body) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`
+        Authorization: `Bearer ${token.token}`,
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     });
 
     const response = await request.json();
 
     return response;
-
   } catch (err) {
     console.log(err);
   }
 }
 
-export async function patchDismiss(uuid){
+export async function patchDismiss(uuid) {
   const token = JSON.parse(localStorage.getItem("token")) || "";
   try {
     const request = await fetch(baseUrl + "departments/dismiss/" + uuid, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`
-      }
+        Authorization: `Bearer ${token.token}`,
+      },
     });
 
     const response = await request.json();
@@ -332,18 +359,18 @@ export async function patchDismiss(uuid){
   }
 }
 
-export async function getCoWork(){
+export async function getCoWork() {
   const token = JSON.parse(localStorage.getItem("token")) || "";
   try {
     const request = await fetch(baseUrl + "users/departments/coworkers", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`
-      }
+        Authorization: `Bearer ${token.token}`,
+      },
     });
 
-     const response = await request.json();
+    const response = await request.json();
 
     return response;
   } catch (err) {
@@ -351,22 +378,21 @@ export async function getCoWork(){
   }
 }
 
-export async function getAllDeps(){
+export async function getAllDeps() {
   const token = JSON.parse(localStorage.getItem("token")) || "";
   try {
     const request = await fetch(baseUrl + "users/departments", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.token}`
-      }
+        Authorization: `Bearer ${token.token}`,
+      },
     });
 
-     const response = await request.json();
+    const response = await request.json();
 
     return response;
   } catch (err) {
     console.log(err);
   }
 }
-

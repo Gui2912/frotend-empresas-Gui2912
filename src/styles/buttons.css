@@ -17,6 +17,7 @@ form button{
   background-color: var(--color-brand);
   color: white;
   font-family: "Inter";
+  margin: 12px 0;
 }
 
 .back-home {
@@ -89,3 +90,14 @@ form button{
 #buttons-align-index button{
   margin: 0 10px;
 }
+
+.buttons-drop button{
+  width: 142px;
+  
+}
+
+#index-redirect{
+  width: 142px;
+}
+
+
