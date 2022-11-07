@@ -44,9 +44,4 @@ async function eventRegister() {
 }
 
 eventRegister();
-// ({
-//   "username": "kezinho",
-//   "password": "1234",
-//   "email": "kenzinho1@mail.com",
-//   "professional_level": "sênior"
-// })
+

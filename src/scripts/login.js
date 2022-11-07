@@ -16,8 +16,6 @@ const redirectionButtons = () => {
   });
 };
 
-// console.log(await getVerifyAdm())
-// console.log(await postLogin());
 redirectionButtons();
 
 async function eventLogin() {

@@ -31,9 +31,7 @@ const departamentRender = async () => {
   const allDep = await getAllDepartaments();
 
   const allCompanys = await getAllCompanys();
-  console.log(allCompanys);
   const select = document.querySelector("#select");
-  console.log(allDep);
 
   allCompanys.forEach((element) => {
     const option = document.createElement("option");
@@ -268,7 +266,6 @@ function deleteDepartamentModal(name, id) {
 
 const usersRender = async () => {
   const allUsers = await getAllEmployees();
-  console.log(allUsers);
   const users = allUsers.filter((element) => !element.is_admin);
   cardUserRender(users);
 };
@@ -410,8 +407,6 @@ function editUserModal(id) {
       kind_of_work: kindOfWork.value,
       professional_level: userExp.value,
     };
-
-    // console.log(body);
 
     await adminEditUser(id, body);
   });

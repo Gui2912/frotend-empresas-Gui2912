@@ -28,7 +28,6 @@ const companysRender = async () => {
 
   select.addEventListener("change", () => {
     const companyFilter = allCompanys.filter(element =>  element.sectors.description === select.value)
-    // console.log(select.value);
     if (select.value === "") {
       renderCard(allCompanys)
     }else{

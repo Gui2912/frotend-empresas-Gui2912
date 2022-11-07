@@ -110,24 +110,14 @@ async function renderUserCoWork() {
   const coWorks = await getCoWork()
   const allCompanies = await getAllCompanys()
   const allDeps = await getAllDeps();
-
-  // console.log(userData.department_uuid);
   
-  // console.log(allDeps);
   const employeeData = document.querySelector(".employee-data");
   if (userData.department_uuid !== null) {
   const findDepName = await allDeps.departments.find(
     (element) => element.uuid === userData.department_uuid
   );
-  console.log(findDepName.name)
-  // console.log(findDepName.company_uuid);
-  
-  
-  const allCompaniesFind = allCompanies.find(element => element.uuid === findDepName.company_uuid)
-  console.log(allCompaniesFind.name);
-  console.log(coWorks[0].users);
 
-  // const departamentPerId = await getDepartamentsId();
+  const allCompaniesFind = allCompanies.find(element => element.uuid === findDepName.company_uuid)
   
   employeeData.innerHTML = ''
   
@@ -162,12 +152,5 @@ async function renderUserCoWork() {
     employeeData.appendChild(p)
   }
 }
-
-// <h2 class="flex justify-center align-center">Company name - Departament name</h2>
-//           <ul class="flex wrap justify-center">
-//             <li class="card-user-data">
-//               <h3>Nome do colega</h3>
-//               <p>Setor</p>
-//             </li>
 
 renderUserCoWork();
