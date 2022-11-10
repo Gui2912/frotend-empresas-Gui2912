@@ -169,8 +169,9 @@ async function hireUserModal(id) {
     };
 
     await patchHire(body);
-
-    teste(allUsersFilter);
+    const rr = document.querySelector(".modal-bg")
+    rr.remove()
+    modalBg(await hireUserModal(id))
   });
 
   div2.append(companyName, hire);
